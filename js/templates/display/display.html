@@ -1,0 +1,19 @@
+<nav-dir></nav-dir>
+<div class="allEntries">
+	<div class="entries" ng-repeat="job in jobs">
+		<p class="text">
+			<strong class="underline">Job Title: </strong>
+			<span class="title">{{job.title}}</span> 
+		</p>
+		<p>
+			<strong class="underline">Location: </strong>
+			<span class="location">{{job.location}}</span>
+		</p>
+		<p class="text">
+				<strong class="underline">Job Description: </strong>
+			<div class="scroll">
+				 <span class="description">{{job.discription}}</span>
+			</div>
+		</p>
+	</div>
+</div>

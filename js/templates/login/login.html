@@ -1,0 +1,17 @@
+<nav-dir></nav-dir>
+
+<div class="side">
+	<div class="container sign">
+		<h3>Log in</h3>
+	    <input placeholder="Email" class="form-control" type="text" ng-model="existUser.email"/></br>
+	    <input placeholder="Password" class="form-control" type="password" ng-model="existUser.password"/></br>
+	    <button ng-click="logMeIn(existUser)">Log In</button>
+	</div>
+
+	<div class="container sign">
+		<h3>Sign up</h3>
+		<input placeholder="Email" class="form-control" type="text" ng-model="newUser.email"></br>
+		<input placeholder="Password" class="form-control" type="password" ng-model="newUser.password"/></br>
+		<button ng-click="addUser(newUser)">Sign Up</button>
+	</div>
+</div>

@@ -1,10 +1,14 @@
 <nav-dir></nav-dir>
 
-<form class="container text-center">
-	<h3>Job Post</h3>
-	<input class="form-control" placeholder="Put your Name" ng-model="job.name">
-	<input class="form-control" placeholder="Job title" ng-model="job.title">
-	<input class="form-control" placeholder="Location of Job" ng-model="job.location">
-	<textarea class="form-control" rows="5" placeholder="Brief Description of the job" ng-model="job.discription"></textarea>
-	<button class="btn btn-success" ng-click="postJobData(job)">Submit</button>
-</form>
+<div class="center">
+	<form class="addjob">
+		<h3>Job Post</h3>
+		<input class="form-control" placeholder="Put your Name" ng-model="job.name">
+		<input class="form-control" placeholder="Job title" ng-model="job.title">
+		<input class="form-control" placeholder="Location of Job" ng-model="job.location">
+		<textarea class="form-control" rows="5" placeholder="Brief Description of the job" ng-model="job.discription"></textarea>
+		<div class="center">
+			<button class="myButton" ng-click="postJobData(job)">Submit</button>
+		</div>
+	</form>
+</div>

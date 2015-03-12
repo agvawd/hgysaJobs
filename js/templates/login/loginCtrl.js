@@ -1,22 +1,30 @@
-angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService, $location, env, $rootScope){
+angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService, $location, env){
 	var firebaseUrl = env.getAppUrl();
 
 	$scope.logMeIn = function(existUser) {
-		debugger;
-		mainService.logUserIn(existUser.email, existUser.password)
+		mainService.logUserIn(existUser.email, existUser.password).then(function(currentAuth){
+			console.log(currentAuth);
+			if(currentAuth){
+				$location.path("/addjob")
+			}
+			else{
+				$location.path("/login")
+			}
+		})
 		$scope.existUser = '';
 	}
 
 	$scope.addUser = function(newUser) {
-		mainService.addUser(newUser.email, newUser.password);
+		debugger;
+		mainService.addUser(newUser.email, newUser.password).then(function(currentAuth){
+			console.log("hit")
+			if(currentAuth){
+				$location.path("/addjob")
+			}
+			else{
+				$location.path("/login")
+			}
+		});
 		$scope.newUser = '';
 	}
-
-	$rootScope.$on("login", function(event){
-		$location.path("/display");
-	})
-	$rootScope.$on("loginError", function(event){
-		$location.path("/login");	
-	})
-
 })

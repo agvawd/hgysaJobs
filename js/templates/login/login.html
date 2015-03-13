@@ -1,17 +1,35 @@
 <nav-dir></nav-dir>
-
-<div class="center">
-	<div class="sign">
-		<h3>Log in</h3>
-	    <input placeholder="Email" class="form-control" type="text" ng-model="existUser.email"/></br>
-	    <input placeholder="Password" class="form-control" type="password" ng-model="existUser.password"/></br>
-	    <button class="myButton" ng-click="logMeIn(existUser)">Log In</button>
+<div ng-show="logInAlert">
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>Warning!</strong> Your email or password was not correct!
 	</div>
+</div>
 
-	<div class="sign">
-		<h3>Sign up</h3>
-		<input placeholder="Email" class="form-control" type="text" ng-model="newUser.email"></br>
-		<input placeholder="Password" class="form-control" type="password" ng-model="newUser.password"/></br>
-		<button class="myButton" ng-click="addUser(newUser)">Sign Up</button>
+<div ng-show="newUserAlert">
+	<div class="alert alert-danger alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>Warning!</strong> Your passwords did not match!
+	</div>
+</div>
+
+<div id="myCard" class="flip-container center" >
+	<div class="flipper">
+		<div class="front sign">
+			<h3>Log in</h3>
+		    <input placeholder="Email" class="form-control" type="text" ng-model="existUser.email"/></br>
+		    <input placeholder="Password" class="form-control" type="password" ng-model="existUser.password"/></br>
+		    <button class="myButton" ng-click="logMeIn(existUser)">Log In</button></br>
+		    <p class="toFlip" ng-click="isClicked()">Sign Up</p>
+		</div>
+
+		<div class="back sign">
+			<h3>Sign up</h3>
+			<input placeholder="Email" class="form-control" type="text" ng-model="newUser.email"></br>
+			<input placeholder="Password" class="form-control" type="password" ng-model="newUser.password"/>
+			<input placeholder="Confirm Password" class="form-control" type="password" ng-model="conPass"/></br>
+			<button class="myButton" ng-click="addUser(newUser)">Sign Up</button></br>
+			<p class="toFlip" ng-click="isClicked()">Log In</p>
+		</div>
 	</div>
 </div>

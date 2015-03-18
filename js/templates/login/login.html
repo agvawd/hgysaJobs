@@ -7,7 +7,7 @@
 	</div>
 </div>
 
-<div ng-show="newUserAlert">
+<div ng-show="unmatchPassAlert">
 	<div class="alert alert-danger" role="alert">
 	  <button type="button" class="close" aria-label="Close" ng-click="dismissNewAlert()"><span aria-hidden="true">&times;</span></button>
 	  <strong>Warning!</strong> Your passwords did not match!
@@ -40,8 +40,8 @@
 				<h3>Sign up</h3>
 				<input placeholder="Email" class="form-control" type="text" ng-model="newUser.email"></br>
 				<input placeholder="Password" class="form-control" type="password" ng-model="newUser.password"/>
-				<input placeholder="Confirm Password" class="form-control" type="password" ng-model="conPass"/></br>
-				<button class="myButton" ng-click="addUser(newUser)">Sign Up</button></br>
+				<input placeholder="Confirm Password" class="form-control" type="password" ng-model="signUpConPass"/></br>
+				<button class="myButton" ng-click="addUser(newUser, signUpConPass)">Sign Up</button></br>
 				<p class="toFlip" ng-click="exitSignUp()">Log In</p>
 			</div>
 
@@ -57,7 +57,7 @@
 				<input placeholder="Email" class="form-control" type="text" ng-model="changePass.email"></br>
 				<input placeholder="Old Password" class="form-control" type="password" ng-model="changePass.oldPass"></br>
 				<input placeholder="New Password" class="form-control" type="password" ng-model="changePass.newPass">
-				<input placeholder="Confirm Password" class="form-control" type="password" ng-model="conPass"/></br>
+				<input placeholder="Confirm Password" class="form-control" type="password" ng-model="resetConPass"/></br>
 				<button class="myButton" ng-click="resetPassword(changePass)">Send Request</button></br>
 				<p class="toFlip" ng-click="exitResetPass()">Log In</p>
 			</div>

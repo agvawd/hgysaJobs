@@ -1,4 +1,4 @@
-var app = angular.module("hgysaJobs", ["firebase", "ngRoute"]);
+var app = angular.module("hgysaJobs", ["firebase", "ngRoute", "ngStorage"]);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -30,7 +30,6 @@ app.config(function($routeProvider){
 
 app.run(["$rootScope", "$location", function($rootScope, $location){
 	$rootScope.$on("$routeChangeError", function(event, next, previous, error){
-		console.log(next.$$route.originalPath)
 		if(error === "AUTH_REQUIRED") {
 			$location.path("/login")
 		}

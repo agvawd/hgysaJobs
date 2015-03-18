@@ -1,4 +1,4 @@
-angular.module("hgysaJobs").directive("navDir", function(env, $location){
+angular.module("hgysaJobs").directive("navDir", function(env, $location, $rootScope, $localStorage, $sessionStorage){
 	return {
 		restrict: "E",
 		templateUrl: "/js/directives/navbar/nav-dir.html",
@@ -9,6 +9,7 @@ angular.module("hgysaJobs").directive("navDir", function(env, $location){
 			$scope.logOut = function(){
 				var ref = new Firebase(env.getAppUrl());
 				ref.unauth();
+				$localStorage.admin = false;
 			}
 		}
 	}

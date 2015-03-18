@@ -13,6 +13,10 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
 		return $firebase(new Firebase(firebaseUrl + "jobs"));
 	}
 
+  this.getUsers = function(){
+    return $firebase(new Firebase(firebaseUrl + "users"));
+  }
+
 	  this.addUser = function(email, password) {
       var deferred = $q.defer();
       var service = this;

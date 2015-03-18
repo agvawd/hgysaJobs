@@ -19,9 +19,11 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 			$scope.existUser = '';
 	}
 
+
+
 	$scope.addUser = function(newUser) {
 		if($scope.newUser.email === undefined || $scope.newUser.password === undefined || $scope.newUser === undefined) {
-			$scope.logUserIn = true;
+			$scope.logInAlert = true;
 		}
 		else if ($scope.newUser.password !== $scope.conPass){
 			$scope.newUserAlert = true;
@@ -39,8 +41,79 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 			$scope.newUser = '';
 			$scope.conPass = '';
 	}
-	
+
+	$scope.forgotPass = function(email) {
+		if($scope.email === '') {
+			$scope.forgotPassAlert = true;
+		}
+		else {
+			mainService.forgotPass(email);
+		}
+	}
+
+	$scope.resetPassword = function(changePass) {
+		if(!$scope.changePass.email || !$scope.changePass.oldPass || !$scope.changePass.newPass || !$scope.changePass) {
+			//alert
+		}
+		// else if (){
+		// 	//alert
+		// }
+		else {
+			mainService.resetPass(changePass.email, changePass.oldPass, changePass.newPass);
+		}
+		$scope.changePass = '';
+	}
+
 	$scope.isClicked = function(){
 		document.querySelector("#myCard").classList.toggle("flip");
+	}
+
+	$scope.signUp = false;
+	$scope.forgotPass = false;
+	$scope.resetPass = false;
+	
+	//---------Show-----------
+	$scope.showSignUp = function() {
+		$scope.signUp = true;
+		$scope.isClicked();
+	}
+
+	$scope.showForgot = function(){
+		$scope.forgotPass = true;
+		$scope.isClicked();
+	}
+
+	$scope.showReset = function() {
+		$scope.resetPass = true;
+		$scope.isClicked();
+	}
+
+	//-----------Exit------------
+	$scope.exitSignUp = function(){
+		$scope.isClicked();
+		$scope.signUp = false;
+	}
+
+	$scope.exitForgotPass = function(){
+		$scope.isClicked();
+		$scope.forgotPass = false;
+	}
+
+	$scope.exitResetPass = function() {
+		$scope.isClicked();
+		$scope.resetPass = false;
+	}
+
+	//-------Get rid of alerts--------
+	$scope.dismissLogIn = function() {
+		$scope.logInAlert = false;
+	}
+
+	$scope.dismissNewAlert = function() {
+		$scope.newUserAlert = false;
+	}
+
+	$scope.dismissResetAlert = function() {
+		$scope.forgotPassAlert = false;
 	}
 })

@@ -60,8 +60,21 @@ html, body {
 	text-decoration: underline;
 }
 
-.toFlip {
+.left {
+    float: left;
+}
+
+.right {
     float: right;
+}
+
+.options {
+    font-size: small;
+}
+
+.toFlip {
+    display: inline-block;
+    margin-top: 5px; 
 }
 
 .toFlip:hover {
@@ -69,12 +82,11 @@ html, body {
     cursor: pointer;
 }
 
-.sign {
-	display: inline-block;
-	vertical-align: top;
-	margin: 10px;
+.card {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
     width: 300px;
-    height: 250px;
     padding: 20px;
 
     background: #f3f3f3;
@@ -84,6 +96,10 @@ html, body {
     box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.resetStyle {
+	height: 270px;
 }
 
 .addjob {
@@ -167,7 +183,6 @@ html, body {
 .flip-container, .front, .back {
     margin: 10px;
     width: 300px;
-    height: 250px;
     padding: 20px;
     margin: 0 auto;
 }
@@ -199,14 +214,12 @@ html, body {
     transition: 0.6s;
     transform-style: preserve-3d;
 
-
     position: absolute;
     top: 0;
     left: 0;
 }
 
 .back {
-    height: 275px;
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -o-transform: rotateY(-180deg);
@@ -228,7 +241,6 @@ html, body {
     -o-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
-
 
 .front {
     z-index: 2;

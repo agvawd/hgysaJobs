@@ -55,4 +55,41 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
       },{remember: "sessionOnly" });
       return deferred.promise;
     }
+
+    this.forgotPass = function(email){
+      var ref = new Firebase(firebaseUrl);
+      ref.resetPassword({
+        email : email
+      }, function(error) {
+        if (error === null) {
+          console.log("Password reset email sent successfully");
+        } else {
+          console.log("Error sending password reset email:", error);
+        }
+      });
+    }
+
+    this.resetPass = function(email, oldPassword, newPassword) {
+      var ref = new Firebase(firebaseUrl);
+      ref.changePassword({
+        email: email,
+        oldPassword: oldPassword,
+        newPassword: newPassword
+      }, function(error) {
+        if (error) {
+          switch (error.code) {
+            case "INVALID_PASSWORD":
+              console.log("The specified user account password is incorrect.");
+              break;
+            case "INVALID_USER":
+              console.log("The specified user account does not exist.");
+              break;
+            default:
+              console.log("Error changing password:", error);
+          }
+        } else {
+          console.log("User password changed successfully!");
+        }
+});
+    }
 })

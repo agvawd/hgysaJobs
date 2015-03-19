@@ -7,11 +7,14 @@ angular.module("hgysaJobs").controller("displayCtrl", function($scope, mainServi
 
 	$scope.admin = $localStorage.admin;
 
-	debugger;
-	if($scope.admin){
-		$("entries").removeClass("scroll").addClass("adminScroll");
+	$scope.changeUserType = function(user, type) {
+		if(type === "normal"){
+			user.type = "admin";
+		}
+		else {
+			user.type = "normal"
+		}
+		$scope.users.$save(user);
 	}
-	else {
-		$("entries").removeClass("adminScroll").addClass("scroll");
-	}
+
 })

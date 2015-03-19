@@ -1,9 +1,9 @@
-angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService, $location, env, $timeout, $rootScope, $localStorage, $sessionStorage){
+angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService, $location, env, $timeout, $localStorage){
 	var firebaseUrl = env.getAppUrl();
 
 	$scope.signUp = false;
-	$scope.forgotPass = false;
-	$scope.resetPass = false;
+	$scope.forgotFlip = false;
+	$scope.reset = false;
 
 	var sync = mainService.getUsers();
 	var users = sync.$asArray();
@@ -26,7 +26,6 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 		}
 		else {	
 			mainService.logUserIn(existUser.email, existUser.password).then(function(currentAuth){
-				console.log(currentAuth);
 				if(currentAuth){
 					var currentUser = currentAuth.password.email;
 					checkAdmin(currentUser);
@@ -59,8 +58,8 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 				var user = {
 					email: newUser.email,
 					type: "normal"
-				}
-				$scope.users.$add(user);
+				};
+				users.$add(user);
 			});
 		}
 			$scope.newUser = '';
@@ -100,12 +99,12 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 	}
 
 	$scope.showForgot = function(){
-		$scope.forgotPass = true;
+		$scope.forgotFlip = true;
 		$scope.isClicked();
 	}
 
 	$scope.showReset = function() {
-		$scope.resetPass = true;
+		$scope.reset = true;
 		$scope.isClicked();
 	}
 
@@ -120,14 +119,14 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 	$scope.exitForgotPass = function(){
 		$scope.isClicked();
 		$timeout(function(){
-			$scope.forgotPass = false;			
+			$scope.forgotFlip = false;			
 		}, 750)
 	}
 
 	$scope.exitResetPass = function() {
 		$scope.isClicked();
 		$timeout(function(){
-			$scope.resetPass = false;			
+			$scope.reset = false;			
 		}, 750)
 	}
 

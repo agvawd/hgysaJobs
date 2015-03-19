@@ -14,6 +14,11 @@ html, body {
     color: #fff;
 }
 
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .entries {
 	display: inline-block;
 	vertical-align: top;
@@ -48,6 +53,10 @@ html, body {
 	background: blue;
 }*/
 
+.changeType:hover{
+    cursor: pointer;
+}
+
 .center {
 	text-align: center;
 }
@@ -58,20 +67,17 @@ html, body {
 }
 
 .adminScroll {
-    height: 70%;
+    height: 40%;
+    overflow: auto;
+}
+
+.userScroll {
+    height: 85%;
     overflow: auto;
 }
 
 .underline {
 	text-decoration: underline;
-}
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
 }
 
 .options {
@@ -102,10 +108,6 @@ html, body {
     box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-}
-
-.resetStyle {
-	/*height: 270px;*/
 }
 
 .addjob {

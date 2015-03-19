@@ -1,35 +1,36 @@
 <nav-dir></nav-dir>
 <div class="center">
 	<div class="entries" ng-show="admin">
-		<ul>
-			<h3 class="underline">User information</h3>
+		<p class="title underline">User information</p>
+		<div class="userScroll">
 			<p ng-repeat="user in users">
 				<strong class="underline">Email:</strong> {{user.email}}<br>
-				<strong class="underline">Type:</strong> {{user.type}}
+				<strong class="underline">Type:</strong> <span class="changeType" ng-click="changeUserType(user,user.type)">{{user.type}}</span>
 			</p>
-		</ul>
+		</div>
 	</div>
-	<div class="entries" ng-repeat="job in jobs">
-		<p class="text" ng-show="admin">
+
+	<div class="entries" ng-repeat="job in jobs | orderBy:'created_at':reverse">
+		<p ng-show="admin">
 			<strong class="underline">Name: </strong>
-			<span class="title">{{job.name}}</span> 
+			{{job.name}}
 		</p>
-		<p class="text">
+		<p>
 			<strong class="underline">Job Title: </strong>
-			<span class="title">{{job.title}}</span> 
+			{{job.title}}
 		</p>
-		<p class="text" ng-show="admin">
+		<p ng-show="admin">
 			<strong class="underline">Created At: </strong>
-			<span class="title">{{job.created_at}}</span> 
+			{{job.created_at}}
 		</p>
 		<p>
 			<strong class="underline">Location: </strong>
-			<span class="location">{{job.location}}</span>
+			{{job.location}}
 		</p>
-		<p class="text">
-				<strong class="underline">Job Description: </strong>
-			<div class="scroll">
-				 <span class="description">{{job.discription}}</span>
+		<p>
+			<strong class="underline">Job Description: </strong>
+			<div class="scroll" ng-class="{'adminScroll' : admin}">
+				 {{job.discription}}
 			</div>
 		</p>
 	</div>

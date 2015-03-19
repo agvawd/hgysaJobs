@@ -21,7 +21,7 @@
 	</div>
 </div>
 
-<div id="myCard" class="flip-container center" >
+<div id="myCard" class="flip-container center">
 	<div class="flipper">
 		<div class="front card">
 			<h3>Log in</h3>
@@ -29,9 +29,9 @@
 		    <input placeholder="Password" class="form-control" type="password" ng-model="existUser.password"/></br>
 		    <button class="myButton" ng-click="logMeIn(existUser)">Log In</button></br>
 		    <div class="options">
-		    	<div class="toFlip left" ng-model="forgotPass" ng-click="showForgot()">Forgot Password?</div>
-		    	<div class="toFlip" ng-model="resetPass" ng-click="showReset()">Reset Password</div>
-		    	<div class="toFlip right" ng-model="signUp" ng-click="showSignUp()">Sign Up</div>
+		    	<div class="toFlip" ng-model="forgotFlip" ng-click="showForgot()">Forgot Password?</div>
+		    	<div class="toFlip" ng-model="reset" ng-click="showReset()">Reset Password</div>
+		    	<div class="toFlip" ng-model="signUp" ng-click="showSignUp()">Sign Up</div>
 		    </div>
 		</div>
 
@@ -45,14 +45,14 @@
 				<p class="toFlip" ng-click="exitSignUp()">Log In</p>
 			</div>
 
-			<div ng-if="forgotPass">
+			<div ng-if="forgotFlip">
 				<h3>Send Password Request</h3>
 				<input placeholder="Email" class="form-control" type="text" ng-model="email"></br>
 				<button class="myButton" ng-click="forgotPass(email)">Send Request</button></br>
 				<p class="toFlip" ng-click="exitForgotPass()">Log In</p>
 			</div>
 
-			<div class="resetStyle" ng-if="resetPass">
+			<div ng-if="reset">
 				<h3>Reset Pass</h3>
 				<input placeholder="Email" class="form-control" type="text" ng-model="changePass.email"></br>
 				<input placeholder="Old Password" class="form-control" type="password" ng-model="changePass.oldPass"></br>

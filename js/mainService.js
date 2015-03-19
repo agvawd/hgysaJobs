@@ -3,7 +3,6 @@ var app = angular.module("hgysaJobs");
 app.factory("Auth", function($firebaseAuth, env){
   var firebaseUrl = env.getAppUrl();  
   var ref = new Firebase(firebaseUrl);
-  console.log($firebaseAuth(ref));
   return $firebaseAuth(ref)
 })
 
@@ -25,7 +24,6 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
         email: email,
         password: password
       }, function(error, userData){
-        debugger;
         if(error){
           console.log("Unable to create user")
           deferred.reject();          

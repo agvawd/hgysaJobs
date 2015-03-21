@@ -26,7 +26,7 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
       }, function(error, userData){
         if(error){
           console.log("Unable to create user")
-          deferred.reject();          
+          deferred.reject(error);
         }
         else {
           console.log("successfully created user!");
@@ -59,19 +59,25 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
     }
 
     this.forgotPass = function(email){
+      var deferred = $q.defer();
       var ref = new Firebase(firebaseUrl);
       ref.resetPassword({
         email : email
       }, function(error) {
+        debugger;
         if (error === null) {
           console.log("Password reset email sent successfully");
+          deferred.resolve();
         } else {
-          console.log("Error sending password reset email:", error);
+          console.log("Error sending password reset email:");
+          deferred.reject(error);
         }
       });
+      return deferred.promise;
     }
 
     this.resetPass = function(email, oldPassword, newPassword) {
+      var deferred = $q.defer();
       var ref = new Firebase(firebaseUrl);
       ref.changePassword({
         email: email,
@@ -82,16 +88,19 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
           switch (error.code) {
             case "INVALID_PASSWORD":
               console.log("The specified user account password is incorrect.");
+              deferred.reject(error);
               break;
             case "INVALID_USER":
               console.log("The specified user account does not exist.");
+              deferred.reject(error);
               break;
             default:
-              console.log("Error changing password:", error);
+              console.log("Error changing password");
           }
         } else {
           console.log("User password changed successfully!");
         }
-});
+      });
+      return deferred.promise;
     }
 })

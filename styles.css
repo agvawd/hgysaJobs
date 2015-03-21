@@ -36,22 +36,7 @@ html, body {
     box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-/*	-webkit-transition: width .5s;
-	transition: width .5s;*/
 }
-
-/*.entries:hover{
-	position: relative;
-	width: 350px;
-	height: 350px;
-	background: blue;
-	font-size: 24px;
-	transition-property: background-color, color;
-	transition-duration: 1s;
-	transition-timing-function: ease-in;
-	height: 350px;
-	background: blue;
-}*/
 
 .changeType:hover{
     cursor: pointer;
@@ -110,7 +95,7 @@ html, body {
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-.addjob {
+.addJob {
 	display: inline-block;
 	margin: 10px;
     width: 400px;
@@ -257,4 +242,56 @@ html, body {
 .alert {
     width: 400px;
     margin: 0 auto;
+}
+
+.centererer {
+  height: 26px;
+  width: 26px;
+  float: right;
+}
+
+.remove {
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -moz-radial-gradient(#f2f2f2, #cccccc);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#f2f2f2, #cccccc);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), radial-gradient(#f2f2f2, #cccccc);
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  -moz-box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 2px solid #e6e6e6;
+  color: #b3b3b3;
+  float: right;
+  height: 23px;
+  width: 23px;
+  text-indent: -9999px;
+  position: absolute;
+  background: #5e5e5e !important;
+}
+
+.remove:after {
+  content: "\2716";
+  text-indent: 0;
+  display: block;
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  font-size: 12px;
+}
+.remove:hover {
+  color: #e6e6e6;
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -moz-radial-gradient(#b3b3b3, #8c8c8c);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#b3b3b3, #8c8c8c);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), radial-gradient(#b3b3b3, #8c8c8c);
+  text-shadow: 0 -1px 0 rgba(153, 153, 153, 0.5);
+  cursor: pointer;
+}
+.remove:active {
+  background: -moz-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), -moz-radial-gradient(#8c8c8c, #808080);
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#8c8c8c, #808080);
+  background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), radial-gradient(#8c8c8c, #808080);
+  text-shadow: 0 -1px 0 rgba(26, 26, 26, 0.5);
+  cursor: pointer;
 }

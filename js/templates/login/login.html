@@ -1,23 +1,44 @@
 <nav-dir></nav-dir>
 
-<div ng-show="logInAlert">
+<div ng-show="noInputAlert">
 	<div class="alert alert-danger" role="alert">
-	  <button type="button" class="close" aria-label="Close" ng-click="dismissLogIn()"><span aria-hidden="true">&times;</span></button>
+	  <button type="button" class="close" aria-label="Close" ng-click="dismissAlerts()"><span aria-hidden="true">&times;</span></button>
 	  <strong>Warning!</strong> Your email or password was not correct!
 	</div>
 </div>
 
 <div ng-show="unmatchPassAlert">
 	<div class="alert alert-danger" role="alert">
-	  <button type="button" class="close" aria-label="Close" ng-click="dismissNewAlert()"><span aria-hidden="true">&times;</span></button>
+	  <button type="button" class="close" aria-label="Close" ng-click="dismissAlerts()"><span aria-hidden="true">&times;</span></button>
 	  <strong>Warning!</strong> Your passwords did not match!
 	</div>
 </div>
 
 <div ng-show="forgotPassAlert">
 	<div class="alert alert-danger" role="alert">
-	  <button type="button" class="close" aria-label="Close" ng-click="dismissforgotAlert()"><span aria-hidden="true">&times;</span></button>
+	  <button type="button" class="close" aria-label="Close" ng-click="dismissAlerts()"><span aria-hidden="true">&times;</span></button>
 	  <strong>Warning!</strong> Please enter your email!
+	</div>
+</div>
+
+<div ng-show="takenEmail">
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" aria-label="Close" ng-click="dismissAlerts()"><span aria-hidden="true">&times;</span></button>
+	  <strong>Warning!</strong> That email already exists!
+	</div>
+</div>
+
+<div ng-show="noUserByThatNameAlert">
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" aria-label="Close" ng-click="dismissAlerts()"><span aria-hidden="true">&times;</span></button>
+	  <strong>Warning!</strong> That email does not exist!
+	</div>
+</div>
+
+<div ng-show="incorrectOldPassAlert">
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" aria-label="Close" ng-click="dismissAlerts()"><span aria-hidden="true">&times;</span></button>
+	  <strong>Warning!</strong> That old password is incorrect!
 	</div>
 </div>
 
@@ -58,7 +79,7 @@
 				<input placeholder="Old Password" class="form-control" type="password" ng-model="changePass.oldPass"></br>
 				<input placeholder="New Password" class="form-control" type="password" ng-model="changePass.newPass">
 				<input placeholder="Confirm Password" class="form-control" type="password" ng-model="resetConPass"/></br>
-				<button class="myButton" ng-click="resetPassword(changePass)">Send Request</button></br>
+				<button class="myButton" ng-click="resetPassword(changePass, resetConPass)">Send Request</button></br>
 				<p class="toFlip" ng-click="exitResetPass()">Log In</p>
 			</div>
 		</div>

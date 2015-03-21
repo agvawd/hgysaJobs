@@ -1,13 +1,20 @@
 <nav-dir></nav-dir>
 
+<div ng-show="incompleteInputAlert">
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" aria-label="Close" ng-click="dismissAlert()"><span aria-hidden="true">&times;</span></button>
+	  <strong>Warning!</strong> One or more input fields are empty!
+	</div>
+</div>
+
 <div class="center">
-	<form class="addjob">
-		<h3>Job Post</h3>
+	<form class="addJob">
+		<h3 class="text-center">Job Post</h3>
 		<input class="form-control" placeholder="Put your Name" ng-model="job.name">
-		<input class="form-control" placeholder="Job title" ng-model="job.title">
+		<input class="form-control" placeholder="Company Name" ng-model="job.companyName">
 		<input class="form-control" placeholder="Location of Job" ng-model="job.location">
-		<textarea class="form-control" rows="5" placeholder="Brief Description of the job" ng-model="job.discription"></textarea>
-		<div class="center">
+		<textarea class="form-control" rows="5" placeholder="Brief description of the job" ng-model="job.description"></textarea>
+		<div class="center"></br>
 			<button class="myButton" ng-click="postJobData(job)">Submit</button>
 		</div>
 	</form>

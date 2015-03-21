@@ -1,12 +1,14 @@
 angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService, $location, env, $timeout, $localStorage){
 	var firebaseUrl = env.getAppUrl();
+	var sync = mainService.getUsers();
+	var users = sync.$asArray();
 
 	$scope.signUp = false;
 	$scope.forgotFlip = false;
 	$scope.reset = false;
-
-	var sync = mainService.getUsers();
-	var users = sync.$asArray();
+	$scope.noInputAlert = false;
+	$scope.unmatchPassAlert = false;
+	$scope.forgotPassAlert = false;
 
 	var checkAdmin = function(currentUser) {
 		users.$loaded().then(function(array){
@@ -21,8 +23,11 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 	}
 
 	$scope.logMeIn = function(existUser) {
-		if($scope.existUser.email === undefined || $scope.existUser.password === undefined || $scope.existUser === undefined){
-			$scope.logInAlert = true;
+		if(!existUser){
+			$scope.noInputAlert = true;
+		}
+		else if(!existUser.email || !existUser.password){
+			$scope.noInputAlert = true;
 		}
 		else {	
 			mainService.logUserIn(existUser.email, existUser.password).then(function(currentAuth){
@@ -36,56 +41,90 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 				}
 			})
 		}
-			$scope.existUser = '';
+		$scope.existUser = '';
 	}
 
 	$scope.addUser = function(newUser, signUpConPass) {
-		if(newUser.email === undefined || newUser.password === undefined || newUser === undefined) {
-			$scope.logInAlert = true;
+		if(!newUser){
+			$scope.noInputAlert = true;
+		}
+		else if(!newUser.email || !newUser.password || !signUpConPass) {
+			$scope.noInputAlert = true;
 		}
 		else if (newUser.password !== signUpConPass){
 			$scope.unmatchPassAlert = true;
 		}
 		else {
 				mainService.addUser(newUser.email, newUser.password).then(function(currentAuth){
-				if(currentAuth){
-					$location.path("/addjob")
-				}
-				else{
-					$location.path("/login")
+					if(currentAuth){
+						$location.path("/addjob")
+					}
+					
+					else{
+						$location.path("/login")
+					}
+
+					var user = {
+						email: newUser.email,
+						type: "normal"
+					};
+					users.$add(user);
+			},function(error){
+				if (error.code === "EMAIL_TAKEN"){
+					$scope.takenEmail = true;
 				}
 
-				var user = {
-					email: newUser.email,
-					type: "normal"
-				};
-				users.$add(user);
+				newUser = '';
+				conPass = '';
 			});
 		}
-			$scope.newUser = '';
-			$scope.conPass = '';
+		newUser.email = '';
+		newUser.password = '';
+		$scope.signUpConPass = '';
 	}
 
 	$scope.forgotPass = function(email) {
-		if($scope.email === '') {
+		if(!email) {
 			$scope.forgotPassAlert = true;
 		}
 		else {
-			mainService.forgotPass(email);
+			mainService.forgotPass(email).then(function(){
+				console.log("no problem")
+			}, function(error){
+				if(error.code === "INVALID_USER"){
+					$scope.noUserByThatNameAlert = true;
+				}
+			});
 		}
+		email = '';
 	}
 
-	$scope.resetPassword = function(changePass) {
-		if(!$scope.changePass.email || !$scope.changePass.oldPass || !$scope.changePass.newPass || !$scope.changePass) {
-			$scope.logInAlert = true;
+	$scope.resetPassword = function(changePass, resetConPass) {
+		if(!changePass){
+			$scope.noInputAlert = true;
 		}
-		else if ($scope.changePass.newPass !== $scope.resetConPass){
-			$scope.unmatchPass = true;
+		else if(!changePass.email || !changePass.oldPass || !changePass.newPass || !resetConPass) {
+			$scope.noInputAlert = true;
+		}
+		else if (changePass.newPass !== resetConPass){
+			$scope.unmatchPassAlert = true;
 		}
 		else {
-			mainService.resetPass(changePass.email, changePass.oldPass, changePass.newPass);
+			mainService.resetPass(changePass.email, changePass.oldPass, changePass.newPass).then(function(){
+
+			}, function(error){
+				if(error.code === "INVALID_PASSWORD"){
+					$scope.incorrectOldPassAlert = true;
+				}
+				else if(error.code === "INVALID_USER"){
+					$scope.noUserByThatNameAlert = true;
+				}
+			});
 		}
-		$scope.changePass = '';
+		changePass.email = '';
+		changePass.oldPass = '';
+		changePass. newPass = '';
+		$scope.resetConPass = '';
 	}
 
 	$scope.isClicked = function(){
@@ -130,16 +169,13 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 		}, 750)
 	}
 
-	//-------Get rid of alerts--------
-	$scope.dismissLogIn = function() {
-		$scope.logInAlert = false;
-	}
-
-	$scope.dismissNewAlert = function() {
+	$scope.dismissAlerts = function(){
+		$scope.noInputAlert = false;
 		$scope.unmatchPassAlert = false;
-	}
-
-	$scope.dismissResetAlert = function() {
 		$scope.forgotPassAlert = false;
+		$scope.takenEmail = false;
+		$scope.noUserByThatName = false;
+		$scope.incorrectOldPassAlert = false;
+		$scope.noUserByThatNameAlert = false;
 	}
 })

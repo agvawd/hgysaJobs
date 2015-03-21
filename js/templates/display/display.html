@@ -4,20 +4,23 @@
 		<p class="title underline">User information</p>
 		<div class="userScroll">
 			<p ng-repeat="user in users">
-				<strong class="underline">Email:</strong> {{user.email}}<br>
-				<strong class="underline">Type:</strong> <span class="changeType" ng-click="changeUserType(user,user.type)">{{user.type}}</span>
+				<strong class="underline">Email: </strong> {{user.email}}<br>
+				<strong class="underline">Type: </strong><span class="changeType" ng-click="changeUserType(user, user.type)">{{user.type}}</span>
 			</p>
 		</div>
 	</div>
 
 	<div class="entries" ng-repeat="job in jobs | orderBy:'created_at':reverse">
+		<div class="centererer" ng-show="admin">
+    		<button class="remove" ng-click="deleteJob(job)">Close</button>
+		</div>
 		<p ng-show="admin">
 			<strong class="underline">Name: </strong>
 			{{job.name}}
 		</p>
 		<p>
-			<strong class="underline">Job Title: </strong>
-			{{job.title}}
+			<strong class="underline">Company Name: </strong>
+			{{job.companyName}}
 		</p>
 		<p ng-show="admin">
 			<strong class="underline">Created At: </strong>
@@ -30,7 +33,7 @@
 		<p>
 			<strong class="underline">Job Description: </strong>
 			<div class="scroll" ng-class="{'adminScroll' : admin}">
-				 {{job.discription}}
+				 {{job.description}}
 			</div>
 		</p>
 	</div>

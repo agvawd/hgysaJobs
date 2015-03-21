@@ -2,12 +2,23 @@ angular.module("hgysaJobs").controller("addjobCtrl", function($scope, $location,
 	var sync = mainService.getJobs();
 	$scope.jobs = sync.$asArray();
 	
-	var created_at = new Date().toLocaleString();;
+	var created_at = new Date().toLocaleDateString();;
 	
 	$scope.postJobData = function(jobObj) {
-		jobObj.created_at = created_at;
-		$scope.jobs.$add(jobObj);
-		console.log("successfully uploaded!")
-		$scope.job = '';
+		if(!jobObj){
+			$scope.incompleteInputAlert = true;
+		}
+		else if(!jobObj.name || !jobObj.companyName || !jobObj.location || !jobObj.description){
+			$scope.incompleteInputAlert = true;
+		}
+		else {
+			jobObj.created_at = created_at;
+			$scope.jobs.$add(jobObj);
+			$scope.job = '';
+		}
+	}
+
+	$scope.dismissAlert = function(){
+		$scope.incompleteInputAlert = false;
 	}
 })

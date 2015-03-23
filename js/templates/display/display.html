@@ -10,9 +10,10 @@
 		</div>
 	</div>
 
-	<div class="entries" ng-repeat="job in jobs | orderBy:'created_at':reverse">
+	<div class="entries" ng-repeat="job in jobs | orderBy:'-created_at':reverse">
 		<div class="centererer" ng-show="admin">
-    		<button class="remove" ng-click="deleteJob(job)">Close</button>
+    		<!-- <button class="remove" ng-click="deleteJob(job)">Close</button> -->
+    		<button type="button" class="close" aria-label="Close"><span aria-hidden="true" ng-click="deleteJob(job)">&times;</span></button>
 		</div>
 		<p ng-show="admin">
 			<strong class="underline">Name: </strong>

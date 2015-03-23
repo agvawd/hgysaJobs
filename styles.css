@@ -1,45 +1,45 @@
 html, body {
 	height: 100%;
 	width: 100%;
-    background: #56BF99;
-    background-size: contain;    
+  background: #56BF99;
+  background-size: contain;    
+  font-family: Helvetica;
 }
 
 .nav {
 	background: #000;
-    opacity: .5;
+  opacity: .5;
 }
 
 .nav-text {
-    color: #fff;
+  color: #fff;
 }
 
 .title {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .entries {
 	display: inline-block;
 	vertical-align: top;
 	margin: 10px;
-    width: 300px;
-    height: 300px;
-    padding: 20px;
-    text-align: left;
-
-    
-    background: #f3f3f3;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    
-    box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  text-align: left;
+  
+  background: #f3f3f3;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  
+  box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .changeType:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .center {
@@ -52,13 +52,13 @@ html, body {
 }
 
 .adminScroll {
-    height: 40%;
-    overflow: auto;
+  height: 40%;
+  overflow: auto;
 }
 
 .userScroll {
-    height: 85%;
-    overflow: auto;
+  height: 85%;
+  overflow: auto;
 }
 
 .underline {
@@ -66,232 +66,187 @@ html, body {
 }
 
 .options {
-    font-size: small;
+  font-size: 12px;
 }
 
 .toFlip {
-    display: inline-block;
-    margin-top: 5px; 
+  display: inline-block;
+  margin-top: 5px; 
 }
 
 .toFlip:hover {
-    text-decoration: underline;
-    cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .card {
-    display: inline-block;
-    vertical-align: top;
-    margin: 10px;
-    width: 300px;
-    padding: 20px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  width: 300px;
+  padding: 20px;
 
-    background: #f3f3f3;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    
-    box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  background: #f3f3f3;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  
+  box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .addJob {
 	display: inline-block;
 	margin: 10px;
-    width: 400px;
-    height: 370px;
-    padding: 20px;
-    text-align: left;
+  width: 400px;
+  height: 370px;
+  padding: 20px;
+  text-align: left;
 
-    background: #f3f3f3;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    
-    box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  background: #f3f3f3;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  
+  box-shadow: 0 -5px 10px -5px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
  
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
 }
  
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
 .myButton {
-    -moz-box-shadow: 3px 3px 0px 0px #899599;
-    -webkit-box-shadow: 3px 3px 0px 0px #899599;
-    box-shadow: 3px 3px 0px 0px #899599;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
-    background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
-    background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
-    background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
-    background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
-    background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
-    background-color:#ededed;
-    -moz-border-radius:15px;
-    -webkit-border-radius:15px;
-    border-radius:15px;
-    border:1px solid #d6bcd6;
-    display:inline-block;
-    cursor:pointer;
-    color:#000;
-    font-family:arial;
-    font-size:13px;
-    padding:5px 15px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #e1e2ed;
+  -moz-box-shadow: 3px 3px 0px 0px #899599;
+  -webkit-box-shadow: 3px 3px 0px 0px #899599;
+  box-shadow: 3px 3px 0px 0px #899599;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+  background:-moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+  background:-webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+  background:-o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+  background:-ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+  background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+  background-color:#ededed;
+  -moz-border-radius:15px;
+  -webkit-border-radius:15px;
+  border-radius:15px;
+  border:1px solid #d6bcd6;
+  display:inline-block;
+  cursor:pointer;
+  color:#000;
+  font-family:arial;
+  font-size:13px;
+  padding:5px 15px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #e1e2ed;
 }
 .myButton:hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
-    background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
-    background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
-    background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
-    background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
-    background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
-    background-color:#bab1ba;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+  background:-moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+  background:-webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+  background:-o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+  background:-ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+  background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed',GradientType=0);
+  background-color:#bab1ba;
 }
 .myButton:active {
-    position:relative;
-    top:1px;
+  position:relative;
+  top:1px;
 }
 
 .flip-container {
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -o-perspective: 1000;
-    perspective: 1000;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
 }
 
 .flip-container, .front, .back {
-    margin: 10px;
-    width: 300px;
-    padding: 20px;
-    margin: 0 auto;
+  margin: 10px;
+  width: 300px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 .flipper {
-    -moz-transform: perspective(1000px);
-    -moz-transform-style: preserve-3d;
-    position: relative;
+  -moz-transform: perspective(1000px);
+  -moz-transform-style: preserve-3d;
+  position: relative;
 }
 
 .front, .back {
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
 
-    -webkit-transition: 0.6s;
-    -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
 
-    -moz-transition: 0.6s;
-    -moz-transform-style: preserve-3d;
+  -moz-transition: 0.6s;
+  -moz-transform-style: preserve-3d;
 
-    -o-transition: 0.6s;
-    -o-transform-style: preserve-3d;
+  -o-transition: 0.6s;
+  -o-transform-style: preserve-3d;
 
-    -ms-transition: 0.6s;
-    -ms-transform-style: preserve-3d;
+  -ms-transition: 0.6s;
+  -ms-transform-style: preserve-3d;
 
-    transition: 0.6s;
-    transform-style: preserve-3d;
+  transition: 0.6s;
+  transform-style: preserve-3d;
 
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .back {
-    -webkit-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-    -o-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
 
 .flip-container:focus .back, .flip-container.flip .back {
-    -webkit-transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
 .flip-container:focus .front, .flip-container.flip .front {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .front {
-    z-index: 2;
+  z-index: 2;
 }
 
 .alert {
-    width: 400px;
-    margin: 0 auto;
+  width: 400px;
+  margin: 0 auto;
 }
 
 .centererer {
-  height: 26px;
-  width: 26px;
+  position: relative;
+  top: -15px;
+  left: 10px;
   float: right;
-}
-
-.remove {
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -moz-radial-gradient(#f2f2f2, #cccccc);
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#f2f2f2, #cccccc);
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), radial-gradient(#f2f2f2, #cccccc);
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  border-radius: 50px;
-  -moz-box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 1px 1px rgba(191, 191, 191, 0.75), 0 2px 1px rgba(0, 0, 0, 0.25);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  border: 2px solid #e6e6e6;
-  color: #b3b3b3;
-  float: right;
-  height: 23px;
-  width: 23px;
-  text-indent: -9999px;
-  position: absolute;
-  background: #5e5e5e !important;
-}
-
-.remove:after {
-  content: "\2716";
-  text-indent: 0;
-  display: block;
-  position: absolute;
-  top: 1px;
-  right: 5px;
-  font-size: 12px;
-}
-.remove:hover {
-  color: #e6e6e6;
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -moz-radial-gradient(#b3b3b3, #8c8c8c);
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#b3b3b3, #8c8c8c);
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)), radial-gradient(#b3b3b3, #8c8c8c);
-  text-shadow: 0 -1px 0 rgba(153, 153, 153, 0.5);
-  cursor: pointer;
-}
-.remove:active {
-  background: -moz-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), -moz-radial-gradient(#8c8c8c, #808080);
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), -webkit-radial-gradient(#8c8c8c, #808080);
-  background: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)), radial-gradient(#8c8c8c, #808080);
-  text-shadow: 0 -1px 0 rgba(26, 26, 26, 0.5);
-  cursor: pointer;
 }

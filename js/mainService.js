@@ -64,7 +64,6 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
       ref.resetPassword({
         email : email
       }, function(error) {
-        debugger;
         if (error === null) {
           console.log("Password reset email sent successfully");
           deferred.resolve();
@@ -96,9 +95,11 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
               break;
             default:
               console.log("Error changing password");
+              deferred.reject(error);
           }
         } else {
           console.log("User password changed successfully!");
+          deferred.resolve();
         }
       });
       return deferred.promise;

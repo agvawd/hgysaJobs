@@ -3,12 +3,16 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 	var sync = mainService.getUsers();
 	var users = sync.$asArray();
 
-	$scope.signUp = false;
-	$scope.forgotFlip = false;
-	$scope.reset = false;
-	$scope.noInputAlert = false;
-	$scope.unmatchPassAlert = false;
-	$scope.forgotPassAlert = false;
+	var resetPage = function(){
+		$scope.signUp = false;
+		$scope.forgotFlip = false;
+		$scope.reset = false;
+		$scope.noInputAlert = false;
+		$scope.unmatchPassAlert = false;
+		$scope.forgotPassAlert = false;
+	}
+
+	resetPage();
 
 	var checkAdmin = function(currentUser) {
 		users.$loaded().then(function(array){
@@ -69,6 +73,7 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 						type: "normal"
 					};
 					users.$add(user);
+					$scope.exitSignUp();
 			},function(error){
 				if (error.code === "EMAIL_TAKEN"){
 					$scope.takenEmail = true;
@@ -89,7 +94,7 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 		}
 		else {
 			mainService.forgotPass(email).then(function(){
-				console.log("no problem")
+				$scope.exitForgotPass();
 			}, function(error){
 				if(error.code === "INVALID_USER"){
 					$scope.noUserByThatNameAlert = true;
@@ -111,7 +116,8 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 		}
 		else {
 			mainService.resetPass(changePass.email, changePass.oldPass, changePass.newPass).then(function(){
-
+				debugger;
+				$scope.exitResetPass();
 			}, function(error){
 				if(error.code === "INVALID_PASSWORD"){
 					$scope.incorrectOldPassAlert = true;

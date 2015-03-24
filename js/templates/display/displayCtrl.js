@@ -1,11 +1,11 @@
-angular.module("hgysaJobs").controller("displayCtrl", function($scope, mainService, $localStorage, $timeout){
+angular.module("hgysaJobs").controller("displayCtrl", function($scope, mainService, $sessionStorage, $timeout){
 	var jobSync = mainService.getJobs();
 	$scope.jobs = jobSync.$asArray();
 
 	var userSync = mainService.getUsers();
 	$scope.users = userSync.$asArray();
 
-	$scope.admin = $localStorage.admin;
+	$scope.admin = $sessionStorage.admin;
 
 	var numOfAdmins = function(){
 		$scope.users.$loaded().then(function(array){

@@ -66,7 +66,7 @@ html, body {
 }
 
 .options {
-  font-size: 12px;
+  font-size: small;
 }
 
 .toFlip {
@@ -83,7 +83,6 @@ html, body {
   display: inline-block;
   vertical-align: top;
   margin: 10px;
-  width: 300px;
   padding: 20px;
 
   background: #f3f3f3;
@@ -175,7 +174,7 @@ html, body {
 
 .flip-container, .front, .back {
   margin: 10px;
-  width: 300px;
+  width: 350px;
   padding: 20px;
   margin: 0 auto;
 }

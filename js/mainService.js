@@ -6,7 +6,7 @@ app.factory("Auth", function($firebaseAuth, env){
   return $firebaseAuth(ref)
 })
 
-app.service("mainService", function($firebase, $location, env, $rootScope, $q){
+app.service("mainService", function($firebase, $location, env, $q){
   var firebaseUrl = env.getAppUrl();  
 	this.getJobs = function() {
 		return $firebase(new Firebase(firebaseUrl + "jobs"));
@@ -26,12 +26,12 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
       }, function(error, userData){
         if(error){
           console.log("Unable to create user")
-          deferred.reject(error);
+          deferred.reject(error.code);
         }
         else {
           console.log("successfully created user!");
-          service.logUserIn(email, password).then(function(){
-            deferred.resolve(userData);
+          service.logUserIn(email, password).then(function(success){
+            deferred.resolve(success);
           });
         }
       });
@@ -48,7 +48,7 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
       }, function(error, authData){
         if(error) {
           console.log("Login Failed");
-          deferred.reject();
+          deferred.reject(error.code);
         }
         else {
           console.log("Authentication successful!");
@@ -69,7 +69,7 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
           deferred.resolve();
         } else {
           console.log("Error sending password reset email:");
-          deferred.reject(error);
+          deferred.reject(error.code);
         }
       });
       return deferred.promise;
@@ -87,15 +87,15 @@ app.service("mainService", function($firebase, $location, env, $rootScope, $q){
           switch (error.code) {
             case "INVALID_PASSWORD":
               console.log("The specified user account password is incorrect.");
-              deferred.reject(error);
+              deferred.reject(error.code);
               break;
             case "INVALID_USER":
               console.log("The specified user account does not exist.");
-              deferred.reject(error);
+              deferred.reject(error.code);
               break;
             default:
               console.log("Error changing password");
-              deferred.reject(error);
+              deferred.reject(error.code);
           }
         } else {
           console.log("User password changed successfully!");

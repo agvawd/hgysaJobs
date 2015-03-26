@@ -2,10 +2,9 @@ angular.module("hgysaJobs").controller("addjobCtrl", function($scope, $location,
 	var sync = mainService.getJobs();
 	$scope.jobs = sync.$asArray();
 	
-	var created_at = new Date().toLocaleDateString();
-	var name = $sessionStorage.currentLoggedInUser;
-	
 	$scope.postJobData = function(jobObj) {
+		var created_at = new Date().toLocaleDateString();
+		var name = $sessionStorage.currentLoggedInUser;
 		if(!jobObj){
 			$scope.incompleteInputAlert = true;
 		}

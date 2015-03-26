@@ -166,6 +166,7 @@ html, body {
 }
 
 .flip-container {
+  text-align: center;
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
   -o-perspective: 1000;
@@ -208,7 +209,7 @@ html, body {
 
   position: absolute;
   top: 0;
-  left: 0;
+  left: -20px;
 }
 
 .back {

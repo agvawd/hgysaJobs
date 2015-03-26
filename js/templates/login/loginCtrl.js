@@ -51,7 +51,6 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 		else {	
 			mainService.logUserIn(existUser.email, existUser.password).then(function(currentAuth){
 				if(currentAuth){
-					debugger;
 					var checkUser = currentAuth.password.email;
 					checkAdmin(checkUser);
 					getCurrentUser(checkUser);
@@ -64,8 +63,12 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 				if(error === "INVALID_PASSWORD") {
 					$scope.incorrectPassAlert = true;
 				}
-				else if(error === "INVALID_USER")
+				else if(error === "INVALID_USER"){
 					$scope.noUserByThatNameAlert = true;
+				}
+				else if(error === "INVALID_EMAIL"){
+					$scope.noUserByThatNameAlert = true;
+				}
 			})
 		}
 		$scope.existUser = '';
@@ -101,7 +104,7 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 					else{
 						$location.path("/login")
 					}
-				
+					
 					newUser.email = '';
 					newUser.name = '';
 					newUser.password = '';
@@ -112,11 +115,10 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 				if (error === "EMAIL_TAKEN"){
 					$scope.takenEmailAlert = true;
 				}
-
-				newUser.email = '';
-				newUser.name = '';
-				newUser.password = '';
-				$scope.signUpConPass = '';
+					newUser.email = '';
+					newUser.name = '';
+					newUser.password = '';
+					$scope.signUpConPass = '';
 			});
 		}
 	}
@@ -157,12 +159,15 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 				else if(error === "INVALID_USER"){
 					$scope.noUserByThatNameAlert = true;
 				}
+				else if(error === "INVALID_EMAIL"){
+					$scope.noUserByThatNameAlert = true;
+				}
 			});
+			changePass.email = '';
+			changePass.oldPass = '';
+			changePass. newPass = '';
+			resetConPass = '';
 		}
-		changePass.email = '';
-		changePass.oldPass = '';
-		changePass. newPass = '';
-		$scope.resetConPass = '';
 	}
 
 	$scope.isClicked = function(){

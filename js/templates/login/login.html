@@ -64,7 +64,7 @@
 		</div>
 
 		<div class="back card">
-			<div ng-if="signUp">
+			<div ng-show="signUp">
 				<h2>Sign up</h2>
 				<input placeholder="Email" class="form-control" type="text" ng-model="newUser.email"></br>
 				<input class="form-control" placeholder="Full Name" ng-model="newUser.name"></br>
@@ -74,14 +74,14 @@
 				<p class="toFlip" ng-click="exitSignUp()">Log In</p>
 			</div>
 
-			<div ng-if="forgotFlip">
+			<div ng-show="forgotFlip">
 				<h2>Send Password Request</h2>
 				<input placeholder="Email" class="form-control" type="text" ng-model="email"></br>
 				<button class="myButton" ng-click="forgotPass(email)">Send Request</button></br>
 				<p class="toFlip" ng-click="exitForgotPass()">Log In</p>
 			</div>
 
-			<div ng-if="reset">
+			<div ng-show="reset">
 				<h2>Reset Pass</h2>
 				<input placeholder="Email" class="form-control" type="text" ng-model="changePass.email"></br>
 				<input placeholder="Old Password" class="form-control" type="password" ng-model="changePass.oldPass"></br>

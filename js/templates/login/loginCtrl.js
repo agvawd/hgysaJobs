@@ -32,7 +32,6 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 
 	var getCurrentUser = function(checkUser) {
 		users.$loaded().then(function(array){
-			debugger;
 			for(var i = 0; i < array.length; i++){
 				if(checkUser === array[i].email){
 					$sessionStorage.currentLoggedInUser = array[i].name;
@@ -105,9 +104,7 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 						$location.path("/login")
 					}
 					
-					newUser.email = '';
-					newUser.name = '';
-					newUser.password = '';
+					$scope.newUser = '';
 					$scope.signUpConPass = '';
 
 					$scope.exitSignUp();
@@ -115,9 +112,7 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 				if (error === "EMAIL_TAKEN"){
 					$scope.takenEmailAlert = true;
 				}
-					newUser.email = '';
-					newUser.name = '';
-					newUser.password = '';
+					$scope.newUser = '';
 					$scope.signUpConPass = '';
 			});
 		}
@@ -136,7 +131,7 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 				}
 			});
 		}
-		email = '';
+		$scope.email = '';
 	}
 
 	$scope.resetPassword = function(changePass, resetConPass) {
@@ -162,11 +157,9 @@ angular.module("hgysaJobs").controller("loginCtrl", function($scope, mainService
 				else if(error === "INVALID_EMAIL"){
 					$scope.noUserByThatNameAlert = true;
 				}
+				$scope.changePass = '';
+				$scope.resetConPass = '';
 			});
-			changePass.email = '';
-			changePass.oldPass = '';
-			changePass. newPass = '';
-			resetConPass = '';
 		}
 	}
 
